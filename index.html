@@ -3,17 +3,21 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="utf-8">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="Styling/styles.css" type="text/css"> 
-  <link rel="stylesheet" href="Styling/disclaimer.css">
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" integrity="sha256-kLAgU\/ywIwYQ6MnBY4zWdDVhQhK5znTNzNbgleJL9tQM=" crossorigin=""/>
-  <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" integrity="sha256-WBkCJQ2q0i1CWYTbCFEpYOqOrQHpGfnrExOv0zgdXqE=" crossorigin=""></script>  
+  <link rel="stylesheet" href="./Styling/styles.css" type="text/css"> 
+  <link rel="stylesheet" href="./Styling/disclaimer.css">
     <title>Your Friendly Neighbourhood Carbon Footprint Tracker</title>
 </head>
 <body>
   <h1>Carbon Footprint Tracker</h1>
+  <div id="animation-container">
+    <img id="animation" src="C:\Users\haris\OneDrive\Desktop\Carbon Footprint Tracker\Designer.png" " alt="Animation showing environmental transformation">
+
   <section id="track-section">
-    <h2>Track Your Footprint</h2>
-    <button type="button" id="track-button">Track Now</button>
+    <h2>Reduce Your Environmental Impact</h2>
+  <p>
+    Calculate your carbon footprint and discover ways to make a difference for our planet. Start by clicking the Track button to start entering your emission activites below.
+  </p>
+    <button type="button" id="track-button">Click here to enter inputs for Tracking the footprint</button>
   </section>
   <div id="disclaimer-modal" class="disclaimer-modal">
     <div class="modal-content">
@@ -23,19 +27,31 @@
       </div>
       <div class="modal-body text-secondary">
         <p class="font-weight-bold">Please note: Footprint estimates may not be completely accurate due to limitations in data and user input. However, it offers valuable insights into your impact and encourages conscious choices.</p>
-      </div>
+        <p class="font-weight-bold text-danger">**Important:** Currently, this application can only estimate your footprint from vehicles only. I will be working on including estimates based on energy consumption in future updates.</p>
+      </div>  
       <div class="modal-footer">
         <button type="button" class="btn btn-warning" onclick="agreeDisclaimer()">I understand & Agree</button>
       </div>
     </div>
-  </div>
-  <script src="JS/script.js"></script>
+  </div>  
+  <script src="JS/index.js"></script>
   <div id="credits">
-    Made possible with data from <img src="C:\Users\haris\OneDrive\Desktop\Carbon Footprint Tracker\Carbon-Interface Favicon.ico" alt="Carbon Interface" width="20" height="20" /><a href="https://carboninterface.com">Carbon Interface</a> and mapping by <img src="C:\Users\haris\OneDrive\Desktop\Carbon Footprint Tracker\Leaflet Favicon.ico" alt="Leaflet.js" width="20" height="20" /><a href="https://leafletjs.com">Leaflet.js</a>.
+    Made possible with data from <img src="C:\Users\haris\OneDrive\Desktop\Carbon Footprint Tracker\climatiq-favicon.ico" alt="Climatiq" width="20" height="20" /><a href="https://www.climatiq.io/">Climatiq</a>
   </div>  
 
   <script>
     document.getElementById("disclaimer-modal").style.display = "block";
+    const animation = document.getElementById('animation');
+
+animation.addEventListener('load', () => {
+  // Add a class initially to hide the animation
+  animation.classList.add('hidden');
+
+  // Remove the 'hidden' class after a short delay to simulate animation
+  setTimeout(() => {
+    animation.classList.remove('hidden');
+  }, 1000); // Adjust delay as needed (in milliseconds)
+});
   </script>  
 </body>
 </html>
